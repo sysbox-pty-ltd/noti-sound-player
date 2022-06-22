@@ -22,8 +22,10 @@ const getNotification = (id: string, callback: (data: any) => void) => {
   });
 }
 
-export default {
-  getNotification
+const FireBaseConnector = {
+  getNotification,
 }
+
+export default FireBaseConnector;
 
 

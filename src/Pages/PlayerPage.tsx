@@ -1,5 +1,5 @@
 import {useParams} from 'react-router-dom';
-import {useEffect, useState} from 'react';
+import {useCallback, useEffect, useState} from 'react';
 import FireBaseConnector from '../Connectors/FireBaseConnector';
 import useSound from 'use-sound';
 // @ts-ignore
@@ -17,9 +17,9 @@ const PlayerPage = () => {
     setIsLoaded(true);
   }, [isLoaded, id]);
 
-  const playSound = () => {
+  const playSound = useCallback(() => {
     play();
-  }
+  }, [play])
 
   useEffect(() => {
     if (currentData === null) {
