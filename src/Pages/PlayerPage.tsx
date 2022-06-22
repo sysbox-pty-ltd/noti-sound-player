@@ -17,13 +17,16 @@ const PlayerPage = () => {
     setIsLoaded(true);
   }, [isLoaded, id]);
 
+  const playSound = () => {
+    play();
+  }
+
   useEffect(() => {
     if (currentData === null) {
       return;
     }
-    play();
-    // console.log('data', currentData);
-  }, [currentData]);
+    playSound();
+  }, [currentData, playSound]);
 
 
   if (isLoaded !== true) {
