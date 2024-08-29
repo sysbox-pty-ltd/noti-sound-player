@@ -1,7 +1,7 @@
-import MockedComponentTestHelper from '../../helper/ComponentTestHelper';
-import EmptyState from '../../../components/frameWork/EmptyState';
+import MockedComponentTestHelper from '../../helpers/ComponentTestHelper';
 import { render, screen } from '@testing-library/react';
 import { faker } from '@faker-js/faker';
+import EmptyState from '../../../components/framework/EmptyState';
 
 jest.mock('@atlaskit/empty-state', () => {
   return {

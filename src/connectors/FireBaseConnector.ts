@@ -1,7 +1,5 @@
 import { initializeApp } from 'firebase/app';
 import { getDatabase, ref, onValue } from 'firebase/database';
-// Follow this pattern to import other Firebase services
-// import { } from 'firebase/<service>';
 
 const getDB = () => {
   const firebaseConfig = {
@@ -10,9 +8,10 @@ const getDB = () => {
   };
   const app = initializeApp(firebaseConfig);
   return getDatabase(app);
-}
+};
 
 // Get a list of cities from your database
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const getNotification = (id: string, callback: (data: any) => void) => {
   const db = getDB();
   const notificationRef = ref(db, `notifications/${id}`);
@@ -20,12 +19,10 @@ const getNotification = (id: string, callback: (data: any) => void) => {
     const data = snapshot.val();
     callback(data);
   });
-}
+};
 
 const FireBaseConnector = {
   getNotification,
-}
+};
 
 export default FireBaseConnector;
-
-

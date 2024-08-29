@@ -1,11 +1,7 @@
-import iBaseType from '../../types/iBaseType';
 import { faker } from '@faker-js/faker';
-import MathHelper from '../../helper/MathHelper';
+import MathHelper from '../../helpers/MathHelper';
 
-type iExtraBase = { CreatedBy?: iUser; UpdatedBy?: iUser } & iConfigParams;
-export type iExtra = iConfigParams & iExtraBase;
-
-export const getPaginatedResult = <T extends iBaseType>({
+export const getPaginatedResult = <T>({
   data,
   from,
   to,
@@ -37,18 +33,6 @@ export const getFakeError = (extra = {}) => {
   const prefix = 'getFakeError';
   return {
     message: getStringField('message', prefix),
-    ...extra,
-  };
-};
-
-export const getFakeBaseType = (extra: iExtraBase = {}): iBaseType => {
-  return {
-    id: faker.string.uuid(),
-    isActive: true,
-    createdAt: faker.date.past().toISOString(),
-    createdById: faker.string.uuid(),
-    updatedAt: faker.date.past().toISOString(),
-    updatedById: faker.string.uuid(),
     ...extra,
   };
 };

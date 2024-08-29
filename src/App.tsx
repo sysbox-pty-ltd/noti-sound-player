@@ -1,19 +1,18 @@
 import React from 'react';
-import './App.css';
-import {Route, Routes} from 'react-router-dom';
-import HomePage from './Pages/HomePage';
-import PlayerPage from './Pages/PlayerPage';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import PlayerPage from './pages/PlayerPage';
 
 function App() {
   return (
-    <div className="App">
+    <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="p">
           <Route path=":id" element={<PlayerPage />} />
         </Route>
       </Routes>
-    </div>
+    </Router>
   );
 }
 
