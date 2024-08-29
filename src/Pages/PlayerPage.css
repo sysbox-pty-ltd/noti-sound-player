@@ -1,9 +1,17 @@
-.play-button-container {
+.player-page-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh; /* Adjust the height as needed */
     flex-direction: column;
+}
+
+.lang-selector-wrapper {
+    margin-bottom: 1rem;
+}
+
+.lang-selector-wrapper select {
+    width: 100%;
 }
 
 /* Styles for the play button */

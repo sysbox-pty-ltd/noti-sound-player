@@ -2,12 +2,20 @@
   "name": "noti-sound-player",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "dependencies": {
+    "@atlaskit/empty-state": "^7.11.2",
+    "@faker-js/faker": "^8.4.1",
+    "axios": "^1.7.5",
     "firebase": "^9.8.3",
+    "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "styled-components": "^6.1.12",
     "typescript": "^4.7.4",
     "use-sound": "^4.0.1",
     "web-vitals": "^2.1.4"
@@ -17,9 +25,19 @@
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
+    "@types/lodash": "^4.17.7",
     "@types/node": "^16.11.41",
     "@types/react": "^18.0.14",
-    "@types/react-dom": "^18.0.5"
+    "@types/react-dom": "^18.0.5",
+    "eslint": "^9.9.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.11",
+    "husky": "^9.1.5",
+    "lint-staged": "^15.2.9",
+    "prettier": "^3.3.3",
+    "ts-jest": "^29.2.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -43,6 +61,48 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,ts,jsx,tsx}",
+      "!src/**/*.d.ts",
+      "!src/index.tsx"
+    ],
+    "coveragePathIgnorePatterns": [
+      "./src/types/",
+      "./src/index.tsx",
+      "./src/App.tsx",
+      "./src/reportWebVitals.ts",
+      "./src/__tests__/helper/ComponentTestHelper.tsx",
+      "./src/__tests__/helper/ModelFaker.ts",
+      "./src/__tests__/helper/ServiceTestHelper.ts",
+      "./src/__tests__/helper/TestHelper.ts"
+    ],
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text-summary",
+      "text",
+      "clover",
+      "html"
+    ],
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/ts-jest"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$",
+      "^.+\\.module\\.(css|sass|scss)$"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web",
+      "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
+      "src/(.*)$": "<rootDir>/src/$1",
+      "snapshotSerializers": "enzyme-to-json/serializer",
+      "^axios$": "axios/dist/node/axios.cjs"
+    },
+    "testMatch": [
+      "**/?(*.)+(test).ts?(x)"
     ]
   }
 }
