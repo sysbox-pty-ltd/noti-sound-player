@@ -2,7 +2,8 @@ import useSound from 'use-sound';
 import { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Spinner from '../framework/Spinner';
-import FireBaseConnector from '../../connectors/FireBaseConnector';
+
+// import FireBaseConnector from '../../connectors/FireBaseConnector';
 import Tokens from '../framework/Tokens';
 import Icons from '../framework/Icons';
 import Button from '../framework/Button';
@@ -29,70 +30,70 @@ const Wrapper = styled.div`
   }
 `;
 const SoundPlayer = ({
-  soundFile,
-  companyId,
-  iSoundOptions,
+  // soundFile,
+  // companyId,
+  // iSoundOptions,
   testId,
   className,
   onStop,
 }: iSoundPlayer) => {
   const testIdStr = `soundPlayer-${testId || ''}`;
-  const [playingMsg, setPlayingMsg] = useState<string | null>(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [play, { stop }] = useSound(soundFile, {
-    onend: () => {
-      setPlayingMsg(null);
-    },
-    ...iSoundOptions,
-  });
-
-  const getData = useCallback(() => {
-    FireBaseConnector.getNotification(companyId, () => {
-      if (!isLoaded) {
-        setIsLoaded(true); // Mark as loaded on the first call
-        return;
-      }
-      play();
-      setPlayingMsg('New Ticket Created.');
-    });
-  }, [companyId, isLoaded, play]);
-
-  useEffect(() => {
-    getData();
-    return () => {
-      stop();
-    };
-  }, [companyId, soundFile, getData, stop]);
-
-  const getContent = () => {
-    const playingMsgStr = `${playingMsg || ''}`.trim();
-    if (playingMsgStr !== '') {
-      return (
-        <div className={'success-msg'} data-testid={`${testIdStr}-success-msg`}>
-          <div className={'icon-wrapper'}>
-            <Icons.NotificationAllIcon label={playingMsgStr} />
-          </div>
-          <div>{playingMsgStr}</div>
-        </div>
-      );
-    }
-    return (
-      <>
-        <div className="spinner-container" data-testid={`${testIdStr}-spinner`}>
-          <Spinner />
-        </div>
-        <h4>Listening...</h4>
-        <p>When a ticket created then the sound will play.</p>
-      </>
-    );
-  };
+  // const [playingMsg, setPlayingMsg] = useState<string | null>(null);
+  // const [isLoaded, setIsLoaded] = useState(false);
+  // const [play, { stop }] = useSound(soundFile, {
+  //   onend: () => {
+  //     setPlayingMsg(null);
+  //   },
+  //   ...iSoundOptions,
+  // });
+  //
+  // const getData = useCallback(() => {
+  //   FireBaseConnector.getNotification(companyId, () => {
+  //     if (!isLoaded) {
+  //       setIsLoaded(true); // Mark as loaded on the first call
+  //       return;
+  //     }
+  //     play();
+  //     setPlayingMsg('New Ticket Created.');
+  //   });
+  // }, [companyId, isLoaded, play]);
+  //
+  // useEffect(() => {
+  //   getData();
+  //   return () => {
+  //     stop();
+  //   };
+  // }, [companyId, soundFile, getData, stop]);
+  //
+  // const getContent = () => {
+  //   const playingMsgStr = `${playingMsg || ''}`.trim();
+  //   if (playingMsgStr !== '') {
+  //     return (
+  //       <div className={'success-msg'} data-testid={`${testIdStr}-success-msg`}>
+  //         <div className={'icon-wrapper'}>
+  //           <Icons.NotificationAllIcon label={playingMsgStr} />
+  //         </div>
+  //         <div>{playingMsgStr}</div>
+  //       </div>
+  //     );
+  //   }
+  //   return (
+  //     <>
+  //       <div className="spinner-container" data-testid={`${testIdStr}-spinner`}>
+  //         <Spinner />
+  //       </div>
+  //       <h4>Listening...</h4>
+  //       <p>When a ticket created then the sound will play.</p>
+  //     </>
+  //   );
+  // };
 
   return (
     <Wrapper
       className={`sound-player-wrapper ${className || ''}`}
       data-testid={testIdStr}
     >
-      <div>{getContent()}</div>
+      {/*<div>{getContent()}</div>*/}
       {onStop && (
         <div className={'stop-btn-wrapper'}>
           <Button
