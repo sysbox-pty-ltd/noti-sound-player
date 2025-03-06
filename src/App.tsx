@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 // import HomePage from './pages/HomePage';
 // import PlayerPage from './pages/PlayerPage';
-import DiscountinuePage from './Pages/DiscountinuePage';
+import DiscontinuePage from './pages/DiscontinuePage';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         {/*<Route path="p">*/}
         {/*  <Route path=":id" element={<PlayerPage />} />*/}
         {/*</Route>*/}
-        <Route path="*" element={<DiscountinuePage />} />
+        <Route path="*" element={<DiscontinuePage />} />
       </Routes>
     </Router>
   );

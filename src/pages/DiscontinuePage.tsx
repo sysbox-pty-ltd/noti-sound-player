@@ -1,6 +1,6 @@
 import Page from '../layouts/Page';
 
-const DiscountinuePage = () => {
+const DiscontinuePage = () => {
   return (
     <Page>
       <div style={{ width: '600px', margin: 'auto', textAlign: 'center' }}>
@@ -17,4 +17,4 @@ const DiscountinuePage = () => {
   );
 };
 
-export default DiscountinuePage;
+export default DiscontinuePage;
